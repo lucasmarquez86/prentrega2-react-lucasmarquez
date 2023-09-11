@@ -1,0 +1,6 @@
+.ItemHeader {
+    max-height: 100px; /* Ajusta esta altura según tus necesidades */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  

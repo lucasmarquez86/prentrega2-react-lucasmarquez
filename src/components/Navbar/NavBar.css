@@ -1,0 +1,36 @@
+
+/* Estilo personalizado para botones activos */
+.nav-link.active {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Estilo para botones en hover */
+  .nav-link:hover {
+    background-color: #f0f0f0;
+    color: black;
+  }
+/* Estilo base para los botones */
+.navbar-nav .nav-link {
+    margin-right: 30px; /* Ajusta el espacio entre los botones según sea necesario */
+    border-radius: 10px; /* Puntas redondeadas para todos los botones */
+    color: white; /* Tipografía negra por defecto */
+    transition: background-color 0.2s, color 0.2s; /* Transición suave de color de fondo y tipografía */
+  }
+  
+  /* Estilo para botones en hover */
+  .navbar-nav .nav-link:hover {
+    background-color: #f0f0f0; 
+    color: black;
+  }
+  
+  /* Estilo para botón activo con fondo blanco y tipografía negra */
+  .navbar-nav .nav-link.active {
+    background-color: white; /* Fondo blanco cuando está activo */
+    color: black; /* Tipografía negra cuando está activo */
+  }
+
+  .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: black !important;
+}
+    
