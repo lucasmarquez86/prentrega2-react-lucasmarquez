@@ -1,37 +1,38 @@
-import './ItemDetailContainer.css';
-import { useState, useEffect, useContext } from 'react';
-import { getProductsById } from '../../asyncMock';
+import { useState, useEffect } from 'react';
+import { useParams} from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import { useParams } from 'react-router-dom';
-import { cartContext } from '../../context/CartContext';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../../firebaseConfig/config';
+import Loader from '../Loader/Loader';
 
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState(null);
-  const { itemId } = useParams();
-  const { addItem } = useContext(cartContext);
+    const [loading, setLoading] = useState(true);
+    const [product, setProduct] = useState([]);
+    const { itemId } = useParams();
 
-  useEffect(() => {
-    getProductsById(itemId)
-      .then(response => {
-        setProduct(response);
-        console.log(response); // Agrega este console.log para ver el producto en la consola
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, [itemId]);
-
-  const addToCart = (quantity) => {
-    if (product) {
-      addItem(product, quantity);
-    }
-  };
-
-  return (
-    <div className='ItemDetailContainer'>
-      <ItemDetail {...product} onAddToCart={addToCart} />
-    </div>
-  );
-};
+    useEffect(() => {
+      setLoading(true);
+      console.log("ID del item:", itemId ); 
+      const docRef = doc(db, 'items', itemId );
+      console.log("Referencia del documento:", docRef); 
+  
+      getDoc(docRef)
+          .then(snapshot => {
+              const data = snapshot.data();
+              const detailProduct = { id: snapshot.id, ...data };
+              console.log("Producto cargado:", detailProduct); 
+              setProduct(detailProduct);
+          })
+          .catch(error => console.log(error))
+          .finally(() => setLoading(false));
+  }, [itemId ]);
+  
+    return (
+        <section className='container py-4'>
+            { loading ? <Loader /> : 
+            <ItemDetail {...product} />}
+    </section> 
+    )
+}
 
 export default ItemDetailContainer;

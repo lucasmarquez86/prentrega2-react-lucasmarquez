@@ -1,0 +1,13 @@
+.CardItem {
+    /* Establece un tamaño fijo para las tarjetas */
+    width: 100%; /* Puedes ajustar el tamaño que desees */
+    display: flex;
+    flex-direction: column;
+    min-height: 700px;
+  }
+  
+  .ItemImg {
+    /* Establece un tamaño fijo para las imágenes */
+    width: 100%;
+    object-fit: cover; /* Ajusta cómo se ajusta la imagen en el contenedor */
+  }

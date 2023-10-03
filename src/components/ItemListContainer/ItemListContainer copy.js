@@ -35,9 +35,8 @@ const ItemListContainer = () => {
   return (
     <>
       <h1 className="text-center mb-5 display-4 fw-bold text-indigo bg-gradient bg-gradient-to-r from-indigo-700 to-purple-700">
-        SOMOS LOCALES Store
+        E-COMMERCE
       </h1>
-      <div className="container">
       <div className="mb-5 mx-auto">
         <Filters />
         <form onSubmit={handleFilterProducts} className="max-w-md mt-5 d-flex">
@@ -53,7 +52,6 @@ const ItemListContainer = () => {
             Buscar
           </button>
         </form>
-      </div>
       </div>
       <ItemList products={filterProducts.length ? filterProducts : products} loading={loading} />
     </>

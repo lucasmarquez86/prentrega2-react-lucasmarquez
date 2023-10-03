@@ -10,10 +10,10 @@ const Item = ({ id, name, img, price, stock }) => {
       <div className='card-body'>
         <h3 className='ItemHeader card-title mb-2'>{name}</h3>
         <p className='Info card-text mb-2'>
-          Precio: ${price}
+          ${price}
         </p>
         <p className='Info card-text mb-2'>
-          Stock disponible: {stock}
+          Stock: {stock} Unidades
         </p>
         <Link to={`/item/${id}`} className='Option btn btn-dark btn-block'>
           Ver Detalle

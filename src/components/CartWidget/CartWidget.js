@@ -1,17 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Badge } from '@mui/material';
 import cart from './assets/shopping-cart.svg';
-import { cartContext } from '../../context/CartContext'; 
+import { useCart } from '../../context/CartContext'; 
 
 const Cartwidget = () => {
-    
-    const { cartQuantity } = useContext(cartContext); 
-    return (
-        <div className='d-flex justify-content-around align-items-center'>
-            <img src={cart} alt="carrito de compras" width='30' /> 
-             {cartQuantity() > 0 && <Badge bg="danger">{cartQuantity()}</Badge>}
-        </div>
-    );
+  const { totalQuantity } = useCart();
+
+  return (
+    <div className='d-flex justify-content-around align-items-center'>
+      <img src={cart} alt="carrito de compras" width='30' />
+      {totalQuantity() > 0 && (
+        <Badge bg="danger" className="rounded-circle">
+          {totalQuantity()}
+        </Badge>
+      )}
+    </div>
+  );
 }
 
 export default Cartwidget;

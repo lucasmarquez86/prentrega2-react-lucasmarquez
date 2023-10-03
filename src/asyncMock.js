@@ -13,7 +13,7 @@ const products = [
     id: '2',
     name: 'Pantalón deportivo negro',
     price: 29.99,
-    category: 'pantalones',
+    category: 'pantalones, category',
     img: 'product-images/2.jpg', // Ruta a la imagen del producto con el ID 2
     stock: 15,
     description: 'Descripción del pantalón deportivo negro',

@@ -1,0 +1,38 @@
+/*****Accesos*****/
+.accesos {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem 2rem; }
+  
+  .accesoBoxUno, .accesoBoxDos, .accesoBoxTres {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-image: url("../../assets/QS_WEB_HOME_LANZAMIENTO_W23_REMERAS.jpg");
+    width: 100%;
+    background-size: cover;
+    background-position: center bottom;
+    padding: 20px;
+    min-height: 500px;
+    margin-bottom: 1rem; }
+    .accesoBoxUno div, .accesoBoxDos div, .accesoBoxTres div {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem 0;
+      grid-column: 1/4;
+      grid-row: 2/3;
+      align-self: center; }
+      .accesoBoxUno div h3, .accesoBoxDos div h3, .accesoBoxTres div h3 {
+       
+        font-size: 5rem;
+        font-weight: 100;
+        text-align: center;
+        padding: 1rem 0; }
+  
+  .accesoBoxDos {
+    background-image: url("../../assets/QS_WEB_HOME_LANZAMIENTO_W23_BUZOS.jpg"); }
+  
+  .accesoBoxTres {
+    background-image: url("../../assets/QS_WEB_HOME_LANZAMIENTO_W23_PANTALONES.jpg"); }
