@@ -24,7 +24,7 @@ const routes = [
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black">
+    <header><nav className="navbar navbar-expand-lg navbar-dark bg-black">
       <div className="container justify-content-between">
         <Link to='/' className="navbar-brand">
           <img src={logo} alt="Logo" width="150" />
@@ -43,10 +43,11 @@ const NavBar = () => {
               </li>
             ))}
           </ul>
-          <Cartwidget />
+          <NavLink to='/cart'><Cartwidget /></NavLink>
         </div>
       </div>
     </nav>
+    </header>
   );
 };
 

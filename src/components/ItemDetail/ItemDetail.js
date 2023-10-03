@@ -1,16 +1,23 @@
-import React from 'react';
 import { Link } from 'react-router-dom'; // Importa el componente Link
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
+import { useState } from 'react';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+  const [quantityAdded, setQuantityAdded] = useState(0)
+
+  const handleOnAdd = (quantity) => {
+    setQuantityAdded(quantity)
+  }
+  
+  
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6">
           <div className="p-4 text-center">
             <img
-              src={`/product-images/${img}`}
+              src={`/${img}`}
               alt={name}
               className="ItemImg img-fluid"
             />
@@ -27,14 +34,13 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
               <p className="Info">Precio: ${price}</p>
             </section>
             <footer className="ItemFooter">
-              <ItemCount
-                initial={1}
-                stock={stock}
-                onAdd={(quantity) => console.log('Cantidad agregada', quantity)}
-              />
-              <Link to={`/category/${category}`} className="btn btn-sm btn-secondary mt-2">
-                Volver
-              </Link>
+              {
+                quantityAdded > 0 ? (
+                  <Link to='/cart' className='Option'>Terminar Compra</Link>
+                ) : (
+                  <ItemCount initial ={1} stock={stock} onAdd={handleOnAdd}/>
+                )
+              }
             </footer>
           </article>
         </div>
