@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
 import { useCart } from "../../context/CartContext"; 
 import { Link } from "react-router-dom";
 import carrito from './1413908.png';
 
 const Cart = () => {
-    const { cart, clearCart, removeItem, total } = useCart(); // Cambia useContext(useCart) a useCart()
+    const { cart, clearCart, removeItem, total } = useCart();
 
 
     return (

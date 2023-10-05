@@ -1,0 +1,9 @@
+.badge-bootstrap {
+
+    width: 25px;
+    height: 25px;
+    line-height: 1;
+    border-radius: 50%;
+    background-color: red;
+    color: beige;
+    padding: 4px;  }

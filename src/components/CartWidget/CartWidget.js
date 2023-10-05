@@ -1,4 +1,5 @@
 import React from 'react';
+import './CartWidget.css';
 import { Badge } from '@mui/material';
 import cart from './assets/shopping-cart.svg';
 import { useCart } from '../../context/CartContext'; 
@@ -10,9 +11,11 @@ const Cartwidget = () => {
     <div className='d-flex justify-content-around align-items-center'>
       <img src={cart} alt="carrito de compras" width='30' />
       {totalQuantity() > 0 && (
-        <Badge bg="danger" className="rounded-circle">
-          {totalQuantity()}
-        </Badge>
+        <span className="position-relative">
+          <Badge className="badge-bootstrap">
+  {totalQuantity()}
+</Badge>
+        </span>
       )}
     </div>
   );

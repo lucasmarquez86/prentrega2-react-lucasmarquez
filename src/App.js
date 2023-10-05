@@ -7,7 +7,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import  CartProvider from './context/CartContext';
 import Cart from './components/Cart/Cart';
-import CheckoutForm from './components/Checkout/Checkout';
+import Checkout from './firebaseConfig/services/Checkout';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path='/inicio' element={<Home/>}/>
         <Route path='*' element={<h1>404 NOT FOUND</h1>}/>
         <Route path='/cart' element={<Cart/>}/>
-        <Route path="/checkout" element={<CheckoutForm />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       
       </BrowserRouter>

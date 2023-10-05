@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Timestamp, addDoc, documentId, getDocs, query, collection, where, writeBatch } from "firebase/firestore";
-import { db } from "../../firebaseConfig/config";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { db } from "../config";
+import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ const Checkout = () => {
           email,
         },
         items: cart,
-        total: total,
+        total: total(),
         date: Timestamp.fromDate(new Date()),
       };
       const batch = writeBatch(db);
@@ -68,13 +69,19 @@ const Checkout = () => {
   }
 
   if (orderId) {
-    return <h1>El ID de su orden es: {orderId}</h1>;
+    return (
+    <div>
+    <h1>El ID de su orden es: {orderId}</h1>
+    <Link to="/inicio" className="btn btn-dark ms-2">volver al Inicio</Link>
+    </div>
+    )
   }
 
   return (
     <div>
       <h1>Checkout</h1>
       <CheckoutForm onConfirm={createOrder} />
+      
     </div>
   );
 };
